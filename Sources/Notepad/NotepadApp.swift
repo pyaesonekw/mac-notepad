@@ -49,7 +49,7 @@ private struct ContentView: View {
                     .allowsHitTesting(false)
             }
         }
-        .onDrop(of: [UType.fileURL.identifier], isTargeted: $isDropTargeted) { providers in
+        .onDrop(of: [UTType.fileURL.identifier], isTargeted: $isDropTargeted) { providers in
             editor.openDroppedItems(from: providers)
         }
     }
@@ -62,7 +62,7 @@ private struct ContentView: View {
     }
 
     private func tabTitle(for document: EditorDocumentState) -> String {
-        document.isDirty ? "\(document.displayTitle) ⧁" : document.displayTitle
+        document.isDirty ? "\(document.displayTitle) ⦁" : document.displayTitle
     }
 }
 
