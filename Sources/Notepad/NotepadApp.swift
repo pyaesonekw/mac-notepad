@@ -49,7 +49,7 @@ private struct ContentView: View {
                     .allowsHitTesting(false)
             }
         }
-        .onDrop(of: [UTType.fileURL.identifier], isTargeted: $isDropTargeted) { providers in
+        .onDrop(of: [UType.fileURL.identifier], isTargeted: $isDropTargeted) { providers in
             editor.openDroppedItems(from: providers)
         }
     }
@@ -62,7 +62,7 @@ private struct ContentView: View {
     }
 
     private func tabTitle(for document: EditorDocumentState) -> String {
-        document.isDirty ? "\(document.displayTitle) ⦁" : document.displayTitle
+        document.isDirty ? "\(document.displayTitle) ⧁" : document.displayTitle
     }
 }
 
@@ -191,7 +191,7 @@ private struct NotepadCommands: Commands {
             Button("Increase Font Size") {
                 editor.adjustFontSize(by: 1)
             }
-            .keyboardShortcut("+", modifiers: [.command])
+            .keyboardShortcut("=", modifiers: [.command])
 
             Button("Decrease Font Size") {
                 editor.adjustFontSize(by: -1)
@@ -215,6 +215,7 @@ private struct NotepadCommands: Commands {
             Button("Reset Formatting") {
                 editor.resetFormatting()
             }
+            .keyboardShortcut("0", modifiers: [.command])
 
             Divider()
 
